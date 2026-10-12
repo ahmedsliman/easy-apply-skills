@@ -1,0 +1,18 @@
+{
+  "name": "easy-apply-skills",
+  "version": "1.0.0",
+  "description": "Install the job-coverletter and job-match Agent Skills into Claude Code, Codex, OpenCode, and Cursor.",
+  "repository": "github:ahmedsliman/easy-apply-skills",
+  "license": "MIT",
+  "bin": {
+    "easy-apply-skills": "bin/install.js"
+  },
+  "files": [
+    "bin",
+    "skills",
+    "opencode-commands"
+  ],
+  "engines": {
+    "node": ">=18.3.0"
+  }
+}

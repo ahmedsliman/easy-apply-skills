@@ -9,14 +9,24 @@ Both skills ask for your CV on first use if they can't find one (`./CV.pdf`, `./
 
 ## Install
 
+One command (needs [Node](https://nodejs.org), works on Windows, macOS, Linux):
+
 ```sh
-./install.sh                    # Claude Code + Codex + OpenCode (global)
-./install.sh --claude           # ~/.claude/skills
-./install.sh --codex            # ~/.codex/skills
-./install.sh --opencode         # ~/.config/opencode/skills
-./install.sh --opencode-commands # OpenCode slash commands: /job-coverletter, /job-match
-./install.sh --cursor-dir=PATH  # PATH/.agents/skills (Cursor project skills)
+npx github:ahmedsliman/easy-apply-skills
 ```
+
+Options — same for the Node installer, `./install.sh`, and `node bin/install.js`:
+
+| Flag | Installs to |
+|---|---|
+| *(none)* | all three tools below |
+| `--claude` | `~/.claude/skills` |
+| `--codex` | `~/.codex/skills` |
+| `--opencode` | `~/.config/opencode/skills` |
+| `--opencode-commands` | `~/.config/opencode/commands` (`/job-coverletter`, `/job-match`) |
+| `--cursor-dir=PATH` | `PATH/.agents/skills` (Cursor project skills) |
+
+From a clone: `./install.sh [flags]` (macOS/Linux; Windows: Git Bash) or `node bin/install.js [flags]` (any OS).
 
 Manual install: copy `skills/job-coverletter` and `skills/job-match` into the tool's skills folder:
 

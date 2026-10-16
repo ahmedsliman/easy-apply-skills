@@ -3,14 +3,14 @@ name: job-match
 description: Score a pasted job ad against the candidate's CV out of 100, with evidence per requirement, gaps, and an honest apply-or-skip verdict.
 ---
 
-# Job Match
+# job-match
 
 Score the match between a pasted job ad and the candidate's CV. Be honest — a weak match must say so, even if the user seems keen.
 
 ## 1. Get the CV (first step, never skip)
 
 - If the CV was already provided in this conversation, use it.
-- Else look for `./CV.pdf`, `./cv.pdf`, `./CV.md`, or `./cv.md` in the working directory.
+- Else look for `./CV.pdf`, `./cv.pdf`, `./CV.md`, or `./cv.md` in the working directory (first match wins).
 - Else STOP and ask the user for the CV (file path or pasted text). Never proceed without it.
 - Gaps are marked `GAP`, never filled by invention.
 
@@ -33,7 +33,9 @@ One line of CV evidence or `GAP` per item:
 ## 4. Output (short and scannable, no extra prose)
 
 - One line: `Match: <total>/100 — <STRONG|SOLID|STRETCH|WEAK> — <Company>, <Role>`
-- Table: `| Requirement (ad) | CV evidence or GAP |` — max 8 rows, ~12 words per cell. Merge minor nice-to-haves into one row.
+- `Overall match: <total>/100` + 2–3 sentence summary (biggest strengths + 2 main risks).
+- `Technical fit: <Excellent|Strong|Partial|Weak>` — one line, based on core stack coverage only.
+- Table: `| Requirement (ad) | Your profile (CV) | Match |` — max 12 rows, ~12 words per cell. Merge minor nice-to-haves into one row. Match cell is one of `Excellent|Strong|Partial|Gap to verify|Gap|Needs confirmation`.
 - `Gaps:` max 3 bullets, one line each (gap + fix on the same line).
 - `Verdict:` 1–2 sentences: apply or skip + the single strongest cover-letter angle.
 
